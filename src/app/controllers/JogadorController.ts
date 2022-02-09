@@ -3,17 +3,18 @@ import {getRepository} from 'typeorm';
 import Jogador from "../models/Jogador";
 import Endereco  from "../models/Endereco";
 class PlayerController{
-    async delete(req: Request, res: Response){
+    async delete(req: Request, res: Response) {
         const repository = getRepository(Jogador);
-        const{nickname, endereco} = req.body;
-        const nicknameExists = await repository.findOne({where: {"nickname": nickname}});
+        const ID = req.body.nickname;
+        const idExists = await repository.findOne({ where: { nickname: ID } });
 
-        if(nicknameExists){
-            await repository.remove(nickname);
+        if (idExists) {
+            await repository.remove(idExists);
+            console.log("Jogador removido com sucesso ", req.body)
             return res.sendStatus(204);
-        }else{
+        } else {
             return res.sendStatus(404);
-        }   
+        }
     }
     async store(req: Request, res: Response){
         const repository = getRepository(Jogador);

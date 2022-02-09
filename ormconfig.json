@@ -3,8 +3,8 @@
     "host": "localhost",
     "port": 5432,
     "username": "postgres",
-    "password": "08152025",
-    "database": "korn",
+    "password": "dl17sp43",
+    "database": "ts_orm_cs_api",
     "synchronize": true,
     "logging": false,
     "entities": [
