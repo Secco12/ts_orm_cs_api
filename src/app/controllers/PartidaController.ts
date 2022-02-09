@@ -24,16 +24,10 @@ class PartidaController{
         return res.json(j);
     }
     async delete(req: Request, res: Response){
-        const repository = getRepository(Partida);
-        const {id, jogador} = req.body;
-        const idExists = await repository.findOne({where: {"id": id}});
+        const {id} = req.params
+        const response = await Partida.delete(id)
+        return res.json(response)
 
-        if(idExists){
-            await repository.remove(id);
-            return res.sendStatus(204)
-        }else{
-            return res.sendStatus(404);
-        }
     }
 }
 export default new PartidaController();

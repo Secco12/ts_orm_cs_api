@@ -43,7 +43,7 @@ router.post('/artefato/update', ArtefatoController.update);
 
 router.post('/partida/store', PartidaController.store);
 router.post('/partida/list', PartidaController.list);
-router.post('/partida/delete', PartidaController.delete);
+router.post('/partida/delete/:id', PartidaController.delete);
 
 router.post('/objetivo/store', ObjetivoController.store);
 router.post('/objetivo/list', ObjetivoController.list);

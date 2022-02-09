@@ -1,9 +1,9 @@
-import { Entity, Column, PrimaryColumn, ManyToOne, JoinColumn, OneToMany } from "typeorm";
+import { Entity, Column, PrimaryColumn, ManyToOne, JoinColumn, OneToMany, BaseEntity } from "typeorm";
 import Jogador from "./Jogador";
 import Round from "./Round";
 
 @Entity('tb_partida')
-export default class Partida{
+export default class Partida extends BaseEntity{
     @PrimaryColumn('int')
     id: number;
 
