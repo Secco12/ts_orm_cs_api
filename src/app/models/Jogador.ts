@@ -1,4 +1,4 @@
-import {Entity, Column, PrimaryColumn, ManyToOne, JoinColumn, ManyToMany, JoinTable,OneToMany} from 'typeorm';
+import {Entity, Column, PrimaryColumn, ManyToOne, JoinColumn, ManyToMany, JoinTable,OneToMany, CreateDateColumn, UpdateDateColumn} from 'typeorm';
 import Endereco from './Endereco';
 import Artefato from './Artefato';
 import Patente from './Patente';
@@ -15,10 +15,10 @@ class Jogador{
     @Column('int')
     pontos: number;
 
-    @Column({ nullable: true, type: 'date' })
+    @CreateDateColumn({ nullable: true, type: 'date' })
     data_cadastro: Date;
 
-    @Column({ nullable: true, type: 'date' })
+    @UpdateDateColumn({ nullable: true, type: 'date' })
     data_ultimo_login: Date;
 
     @ManyToOne(type => Endereco)
